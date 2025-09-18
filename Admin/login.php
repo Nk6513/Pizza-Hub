@@ -1,23 +1,25 @@
 <?php
-
+session_start();
 include('../config/db_connect.php');
 
 $error = '';
 
 if(isset($_POST['login'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
 
     if($username == 'testadmin' &&  $password == "pass123") {
-        header('Location: ../add.php');
+        $_SESSION['logged_in'] = true;
+        $_SESSION['username'] = $username;
+        header('Location: ../Admin/dashboard.php');
         exit;
     }
     else {
         $error = "invalid username or password";
-
         }
 }
-?>
+
+?>  
 
 <?php include '../templates/header.php'; ?>
 

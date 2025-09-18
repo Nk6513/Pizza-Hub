@@ -1,11 +1,11 @@
 <?php
 
 // Connecting Database
-$connection = mysqli_connect('localhost', 'nakhan','1234','nas-pizzas');
+$conn = mysqli_connect('localhost', 'root', '', 'pizza-hub');
 
-// Checking Connection to Database
-if (!$connection) 	{
-	echo 'Connection error:' . mysqli_connect_error();
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
+
 
 ?>

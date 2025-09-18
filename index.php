@@ -1,13 +1,12 @@
-
 <?php 
 
 include('config/db_connect.php');
 
 // Query to fetch pizzas data from database 
-$sql = 'SELECT title, ingredients, id FROM pizzas ORDER BY created_at';
+$sql = 'SELECT title, ingredients, id, price FROM pizzas ORDER BY created_at';
 
 // Get the result set of pizzas
-$result = mysqli_query($connection, $sql);
+$result = mysqli_query($conn, $sql);
 
 // fetch the resulting rows as an array
 $pizzas = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -16,15 +15,13 @@ $pizzas = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_free_result($result);
 
 // Close connection 
-mysqli_close($connection);
+mysqli_close($conn);
 
 ?>
 
 <!DOCTYPE html>
 <html>
-	
 	<?php include'templates/header.php'; ?>
-
 	<div class="container">
 		<div class="row">
 			<?php foreach($pizzas as $pizza): ?>
@@ -39,24 +36,14 @@ mysqli_close($connection);
 								<?php endforeach; ?>
 							</ul>
 						</div>
-						<div class="card-action right-align">
-							<a class="brand-text" href="admin/payment.php?id=<?php echo $pizza['id'] ?>">more info</a>
-						</div>
+						<div class="card-action" style="display: flex; justify-content: space-between; align-items: center;">
+  							<p class="black-text" style="padding: 5px 10px; border-radius: 5px; font-weight: bold;">Price: $ <?php echo  htmlspecialchars($pizza['price']);  ?></p>
+ 							<a class="btn brand z-depth-0 right" name="payment" href="admin/payment.php?id=<?php echo $pizza['id'] ?>">Buy</a>
+						</div>						
 					</div>
 				</div>			
 			<?php endforeach; ?>
-
-			<!-- <?php if(count($pizzas) >= 3) : ?>
-			 <p> There are more than 3 pizzas! </p>
-			 
-			<?php else :  ?>
-		     <p> There are less than 3 pizzas!</p>
-
-			<?php endif; ?> -->
-
 		</div>
-	</div>
-    
+	</div> 
 	<?php include 'templates/footer.php'; ?>
-
 </html>
