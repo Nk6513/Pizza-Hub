@@ -75,11 +75,11 @@ if (isset($_POST['submit'])) {
                            title = '$title', 
                            ingredients = '$ingredients', 
                            price = $price 
-                     WHERE id = $id";
+                       WHERE id = $id";
             $result = mysqli_query($conn, $sql);
 
             if ($result) {
-                header("Location: ../index.php");
+                header("Location: add.php");
                 exit();
             }
         } else {
@@ -88,8 +88,7 @@ if (isset($_POST['submit'])) {
             $result = mysqli_query($conn, $sql);
 
             if ($result) {
-                header("Location: ../index.php");
-                exit();
+                $_SESSION['message'] = "Pizza added successfully";
             } else {
                 echo 'Query error: ' . mysqli_error($conn);
             }
@@ -122,12 +121,28 @@ if (isset($_GET['edit_id'])) {
 <?php include("../templates/dashboard_header.php"); ?>
 
 <section class="container grey-text">
-    <h4 class="center teal-text text-darken-2">
+    <h4 class="center orange-text text-darken-2">
         <?php echo isset($_GET['edit']) ? 'Edit Pizza' : 'Add a Pizza'; ?>
     </h4>
     <div class="center">
-        <div style="width:80px; height:3px; background-color:#009688; margin:10px auto 20px; border-radius:2px;"></div>
+        <div style="width:80px; height:3px; background: #ff9800 !important; margin:10px auto 20px; border-radius:2px;"></div>
     </div>
+	<?php if(isset($_SESSION['message'])) : ?>
+	<div class="card-panel orange-text" style="text-align: center;">
+		<p><?php echo htmlspecialchars($_SESSION['message']); ?></p>
+	</div>
+	
+	<?php unset($_SESSION['message']); ?>
+	<?php endif ?>
+
+	<script> 
+		setTimeout(() => {
+			const message = document.querySelector('.card-panel');
+			if(message) {
+				message.style.display = 'none';
+			}
+		}, 4000);
+	</script>
 
     <?php if ($pizza): ?>
         <form class="white z-depth-2" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST"> 
@@ -152,31 +167,15 @@ if (isset($_GET['edit_id'])) {
             <?php endif; ?>
 
             <div class="center">
-                <input type="submit" name="submit" value="<?php echo isset($_GET['edit_id']) ? 'Update' : 'Submit'; ?>" class="btn teal z-depth-0">
-            </div>        
+                <input type="submit" name="submit" value="<?php echo isset($_GET['edit_id']) ? 'Update' : 'Submit'; ?>" class="btn orange z-depth-0">
+            </div> 
+			       
         </form>
+		
     <?php endif ?>
+
 </section>
 
 <?php include '../templates/dashboard.footer.php'; ?>
 
-<style>
-    .brand {
-        /* background: #cbb09c !important; */
-    }
-    .brand-text {
-        color: #cbb09c !important;
-    }
-    form {
-        max-width: 460px;
-        margin: 20px auto;
-        padding: 20px;
-    }
-    .pizza {
-        width: 100px;
-        margin: 40px auto -30px;
-        display: block;
-        position: relative;
-        top: -30px;
-    }
-</style>
+

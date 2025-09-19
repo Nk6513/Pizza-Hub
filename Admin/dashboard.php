@@ -65,7 +65,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         <div class="card green lighten-4 z-depth-2 card-stats" 
              style="flex:1; display:flex; flex-direction:column; justify-content:center;">
             <div class="card-content" style="text-align:center;">
-                <h5 class="green-text text-darken-3">Recent Pizza</h5>
+                <h5 class="green-text text-darken-3" style="margin-top: -3px;">Recent Pizza</h5>
                 <h6 class="green-text text-darken-4" 
                     style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
                     <?php echo $recentPizza; ?>
@@ -85,12 +85,9 @@ if ($result && mysqli_num_rows($result) > 0) {
 <div class="row">
     <div class="col s12">
         <h5>Quick Actions</h5>
-        <a href="add.php" class="btn teal z-depth-0">Add Pizza</a>
+        <a href="add.php" class="btn orange z-depth-0">Add Pizza</a>
         <a href="manage_pizzas.php" class="btn blue z-depth-0">Manage Pizzas</a>
     </div>
 </div>
-
-<!-- Materialize JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <?php include("../templates/dashboard.footer.php"); ?>
