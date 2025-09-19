@@ -1,67 +1,41 @@
-
 <?php
-
-// Include the database connection (adjust path if necessary)
-//include(__DIR__ . '/../config/db_connect.php');
-
-?>
-
-<?php
+// Redirect to success page on form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: success.php");
     exit;
 }
 ?>
 
-
 <?php include '../templates/header.php'; ?>
 
+<style>
+    body {
+        background-color: #f5f5f5;
+    }
 
+    h4 {
+        margin-bottom: 30px;
+        color: #cbb09c;
+    }
 
+    .btn-brand {
+        background-color: #cbb09c;
+    }
 
+    input:focus + label {
+        color: #cbb09c !important;
+    }
 
+    .input-field input:focus {
+        border-bottom: 1px solid #cbb09c !important;
+        box-shadow: 0 1px 0 0 #cbb09c !important;
+    }
+</style>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment</title>   
-    
-    <style>
-        body {
-            background-color: #f5f5f5;
-        }
-        /* .container {
-            margin-top: 50px;
-            max-width: 500px;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        } */
-        h4 {
-            margin-bottom: 30px;
-            color: #cbb09c;
-        }
-        .btn-brand {
-            background-color: #cbb09c;
-        }
-        input:focus + label {
-            color: #cbb09c !important;
-        }
-        .input-field input:focus {
-            border-bottom: 1px solid #cbb09c !important;
-            box-shadow: 0 1px 0 0 #cbb09c !important;
-        }
-    </style>
-    
-    
-</head>
-<body>
+<section>
     <div class="container">
         <h4 class="center-align">Payment Details</h4>
+
         <form action="#" method="POST">
             <!-- Name on Card -->
             <div class="input-field">
@@ -120,10 +94,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </form>
     </div>
+</section>
 
-    
-</body>
-
-<?php include'../templates/footer.php'; ?>
-
-</html>
+<?php include '../templates/footer.php'; ?>
