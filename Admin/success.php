@@ -1,5 +1,8 @@
 <?php include '../templates/header.php'; ?>
 
+<!--=============================================================
+=  CUSTOM STYLES
+==============================================================-->
 <style>
     .success-wrapper {
         display: flex;
@@ -23,18 +26,39 @@
     }
 </style>
 
+
+<!--=============================================================
+=  SUCCESS MESSAGE
+==============================================================-->
 <section>
     <div class="container success-wrapper">
         <div class="card success-card z-depth-2">
+
+            <!-- Success Icon -->
+            <div class="success-icon">
+                <i class="material-icons">check_circle</i>
+            </div>
+
+            <!-- Title -->
             <h4>Thank You!</h4>
-            <p class="flow-text">Your payment has been received successfully.</p>
+
+            <!-- Message -->
+            <p class="flow-text">
+                Your payment has been received successfully.
+            </p>
             <p class="grey-text">
                 We’re preparing your order. You’ll get an update shortly.
             </p>
+
             <br>
-            <a href="/pizza-hub/index.php" class="btn brand z-depth-0">Back to Home</a>
+
+            <!-- Back to Home -->
+            <a href="/pizza-hub/index.php" class="btn brand z-depth-0">
+                Back to Home
+            </a>
         </div>
     </div>
 </section>
+
 
 <?php include '../templates/footer.php'; ?>
