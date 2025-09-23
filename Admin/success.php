@@ -1,35 +1,8 @@
-<?php include '../templates/header.php'; ?>
-
-<!--=============================================================
-=  CUSTOM STYLES
-==============================================================-->
-<style>
-    .success-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 80vh;
-    }
-
-    .success-card {
-        max-width: 500px;
-        width: 100%;
-        padding: 30px;
-        border-radius: 12px;
-        text-align: center;
-    }
-
-    .success-icon {
-        font-size: 70px;
-        color: #4caf50;
-        margin-bottom: 20px;
-    }
-</style>
-
-
 <!--=============================================================
 =  SUCCESS MESSAGE
 ==============================================================-->
+<?php include '../templates/header.php'; ?>
+
 <section>
     <div class="container success-wrapper">
         <div class="card success-card z-depth-2">
@@ -60,5 +33,31 @@
     </div>
 </section>
 
-
 <?php include '../templates/footer.php'; ?>
+
+
+<!--=============================================================
+=  CUSTOM STYLES
+==============================================================-->
+<style>
+    .success-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+    }
+
+    .success-card {
+        max-width: 500px;
+        width: 100%;
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .success-icon {
+        font-size: 70px;
+        color: #4caf50;
+        margin-bottom: 20px;
+    }
+</style>
