@@ -66,7 +66,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     $buyerEmail   = $order['email'];
     $pizzaName    = $order['pizza_title']; // ✅ Recent pizza name
 } else {
-    echo "<h3>No orders found</h3>";
+    // echo "<h3>No orders found</h3>";
 }
 
 mysqli_free_result($result);

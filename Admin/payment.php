@@ -115,14 +115,6 @@ if (isset($_POST['submit'])) {
     <!-- Page Title -->
     <h4 class="center-align">Payment Details</h4>
 
-    <!-- Success / Error Message -->
-    <?php if (isset($_SESSION['message'])): ?>
-        <div class="payment-notify orange-text center-align">
-            <p><?php echo htmlspecialchars($_SESSION['message']); ?></p>
-        </div>
-        <?php unset($_SESSION['message']); ?>
-    <?php endif; ?>
-
     <!-- Payment Form -->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="white z-depth-2">
 
@@ -180,20 +172,6 @@ if (isset($_POST['submit'])) {
 
 <?php include '../templates/footer.php'; ?>
 
-
-<!--=============================================================
-=  AUTO-HIDE MESSAGE
-==============================================================-->
-<?php if (isset($_SESSION['message'])): ?>
-<script> 
-    setTimeout(() => {
-        const message = document.querySelector('.card-panel');
-        if (message) {
-            message.style.display = 'none';
-        }
-    }, 4000);
-</script>
-<?php endif; ?>
 
 
 <!--=============================================================
