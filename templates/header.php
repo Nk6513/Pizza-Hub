@@ -117,7 +117,7 @@ $logged_in  = $_SESSION['logged_in'] ?? false;
 <!--=============================================================
 =  NAVBAR
 ==============================================================-->
-<nav class="white z-depth-1">
+<nav class="grey lighten-3">
     <div class="nav-wrapper container">
         <a href="/pizza-hub/index.php" class="brand-logo brand-text">Nas Pizza</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">

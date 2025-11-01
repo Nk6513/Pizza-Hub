@@ -74,7 +74,7 @@ $logged_in  = $_SESSION['logged_in'] ?? false;
 ==============================================================-->
 <body>
 <header>
-    <nav class="teal z-depth-0">
+    <nav class="teal grey z-depth-0">
         <div class="container">
             <a href="#" class="brand-logo">Nas Pizza Admin</a>
             <ul class="right hide-on-small-and-down">

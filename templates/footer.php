@@ -1,6 +1,8 @@
 <!--=============================================================
 =  PAGE FOOTER
 ==============================================================-->
+
+
 <footer class="page-footer grey lighten-3">
     <div class="container">
 
@@ -16,7 +18,7 @@
 
             <!-- Quick Links -->
             <div class="col s12 m4 offset-m2">
-                <h5 class="orange-text text-darken-2">Links</h5>
+                <h5 class="brand-text text-darken-2">Links</h5>
                 <ul>
                     <li><a class="footer-link" href="/pizza-hub/index.php">Home</a></li>
                     <li><a class="footer-link" href="/pizza-hub/menu.php">Menu</a></li>

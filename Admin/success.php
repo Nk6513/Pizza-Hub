@@ -6,12 +6,6 @@
 <section>
     <div class="container success-wrapper">
         <div class="card success-card z-depth-2">
-
-            <!-- Success Icon -->
-            <div class="success-icon">
-                <i class="material-icons">check_circle</i>
-            </div>
-
             <!-- Title -->
             <h4>Thank You!</h4>
 

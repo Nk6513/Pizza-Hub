@@ -1,60 +1,87 @@
-<?php 
+<?php
 //---------------------------------------------------------------
 // INDEX PAGE
 //---------------------------------------------------------------
-include('config/db_connect.php');
-
-// Query to fetch pizzas data
-$sql = 'SELECT title, ingredients, id, price FROM pizzas ORDER BY created_at';
-$result = mysqli_query($conn, $sql);
-
-// Fetch as associative array
-$pizzas = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-// Free result memory and close connection
-mysqli_free_result($result);
-mysqli_close($conn);
 ?>
 
 <?php include './templates/header.php'; ?>
 
-<div class="container">
-    <div class="row">
+<!-- Simple color & font setup -->
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
 
-        <?php foreach($pizzas as $pizza): ?>
-            <div class="col s6 md3">
-                <div class="card z-depth-0">
+    .shine-btn::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: skewX(-25deg);
+    }
 
-                    <!-- Pizza Image -->
-                    <img src="img/pizza.svg" class="pizza">
+    .shine-btn:hover::after {
+        left: 125%;
+        transition: left 0.7s ease;
+    }
 
-                    <!-- Card Content -->
-                    <div class="card-content center">
-                        <h6><?php echo htmlspecialchars($pizza['title']); ?></h6>
-                        <ul class="grey-text">
-                            <?php foreach(explode(',', $pizza['ingredients']) as $ing) : ?>
-                                <li><?php echo htmlspecialchars($ing); ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+    /* Align hero text to the left */
+    .hero-content {
+        text-align: center;
+        padding-left: 50px;
+    }
 
-                    <!-- Card Action -->
-                    <div class="card-action" style="display:flex; justify-content:space-between; align-items:center;">
-                        <p class="black-text" 
-                           style="padding:5px 10px; border-radius:5px; font-weight:bold;">
-                            Price: $<?php echo htmlspecialchars($pizza['price']); ?>
-                        </p>
-                        <a href="admin/payment.php?pizza_id=<?php echo $pizza['id']; ?>" 
-                           class="btn brand z-depth-0 right">
-                           Buy
-                        </a>
-                    </div>
+    @media (max-width: 600px) {
+        .hero-content {
+            padding-left: 20px;
+        }
+    }
+</style>
 
-                </div>
-            </div>          
-        <?php endforeach; ?>
-
+<!-- Hero Section -->
+<div class="section valign-wrapper"
+    style="background: url('img/PizzaHeroImage.jpeg') center/cover no-repeat; height: 85vh; border-top: 3px solid #f2d0a4;">
+    <div class="container">
+        <h2 class="white-text text-lighten-4">Welcome to <span class="brand-text">Nas Pizza</span></h2>
+        <h5 class="white-text text-lighten-3">Delicious. Fresh. Authentic.</h5>
+        <a href="menu.php"
+            class="btn-large waves-effect waves-light brand z-depth-2 hoverable shine-btn"
+            style="margin-top: 20px; position: relative; overflow: hidden;">
+            Explore Menu
+        </a>
     </div>
-</div> 
+</div>
+
+<!-- About Section -->
+<div class="section white">
+    <div class="container">
+        <h4 class="center grey-text text-darken-3">Our Story</h4>
+        <p class="center grey-text text-darken-1">
+            At <strong>Nas Pizza</strong>, we craft every pizza with passion and precision.
+            From hand-stretched dough to the finest locally-sourced ingredients,
+            our goal is to bring you the perfect bite every time.
+        </p>
+    </div>
+</div>
+
+<!-- Highlight Section -->
+<div class="section brand white-text center">
+    <div class="container">
+        <h5>“The taste of tradition — made with love, served with warmth.”</h5>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="section center white">
+    <div class="container">
+        <h5 class="grey-text text-darken-2">Hungry? Let’s fix that!</h5>
+        <a href="menu.php" class="btn-large brand waves-effect waves-light z-depth-1 shine-btn" style="margin-top: 10px;">
+            Order Now
+        </a>
+    </div>
+</div>
 
 <?php include 'templates/footer.php'; ?>
